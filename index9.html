@@ -1,0 +1,129 @@
+<style>
+    .image-gallery {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    }
+
+    .image-container {
+    display: flex;
+    overflow: hidden;
+    }
+
+    .image-list {
+    display: flex;
+    }
+
+    .image-list img {
+    width: 300px;
+    height: auto;
+    margin-right: 10px;
+    }
+
+    .scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+    }
+
+    .prev-button {
+    left: 10px;
+    }
+
+    .next-button {
+    right: 10px;
+    }
+</style>
+
+<div class="image-gallery">
+    <div class="image-container">
+      <div class="image-list">
+        <img src="path/to/image1.jpg" alt="Image 1">
+        <img src="path/to/image2.jpg" alt="Image 2">
+        <img src="path/to/image3.jpg" alt="Image 3">
+        <img src="path/to/image4.jpg" alt="Image 4">
+        <img src="path/to/image5.jpg" alt="Image 5">
+        <img src="path/to/image6.jpg" alt="Image 6">
+        <img src="path/to/image7.jpg" alt="Image 7">
+        <img src="path/to/image8.jpg" alt="Image 8">
+        <img src="path/to/image9.jpg" alt="Image 9">
+        <img src="path/to/image10.jpg" alt="Image 10">
+        <img src="path/to/image11.jpg" alt="Image 11">
+        <img src="path/to/image12.jpg" alt="Image 12">
+        <img src="path/to/image13.jpg" alt="Image 13">
+        <img src="path/to/image14.jpg" alt="Image 14">
+        <img src="path/to/image15.jpg" alt="Image 15">
+        <img src="path/to/image16.jpg" alt="Image 16">
+        <!-- Thêm các hình ảnh khác vào đây -->
+      </div>
+    </div>
+    <button class="scroll-button prev-button">&#8249;</button>
+    <button class="scroll-button next-button">&#8250;</button>
+  </div>
+<script>
+    var container = document.querySelector('.image-container');
+    var imageList = document.querySelector('.image-list');
+    var prevButton = document.querySelector('.prev-button');
+    var nextButton = document.querySelector('.next-button');
+
+    var itemWidth = 320; // Kích thước của mỗi đối tượng
+    var visibleItems = 5; // Số lượng đối tượng hiển thị
+
+    var scrollDistance = itemWidth * visibleItems; // Khoảng cách cuộn
+    var isDragging = false;
+    var startPosition = 0;
+    var startScrollLeft = 0;
+
+    prevButton.addEventListener('click', function() {
+    scrollImageList('prev');
+    });
+
+    nextButton.addEventListener('click', function() {
+    scrollImageList('next');
+    });
+
+    container.addEventListener('mousedown', function(event) {
+    isDragging = true;
+    startPosition = event.clientX;
+    startScrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mousemove', function(event) {
+    if (isDragging) {
+        var delta = event.clientX - startPosition;
+        container.scrollLeft = startScrollLeft - delta;
+    }
+    });
+
+    container.addEventListener('mouseup', function() {
+    isDragging = false;
+    });
+
+    container.addEventListener('mouseleave', function() {
+    isDragging = false;
+    });
+
+    function scrollImageList(direction) {
+    var currentScroll = container.scrollLeft;
+
+    if (direction === 'prev') {
+        container.scrollTo({
+        left: Math.max(currentScroll - scrollDistance, 0),
+        behavior: 'smooth'
+        });
+    } else if (direction === 'next') {
+        container.scrollTo({
+        left: Math.min(currentScroll + scrollDistance, imageList.offsetWidth - container.offsetWidth),
+        behavior: 'smooth'
+        });
+    }
+    }
+</script>

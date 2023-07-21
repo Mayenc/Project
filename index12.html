@@ -1,0 +1,36 @@
+<div id="image-container">
+    <img id="large-image" class="preview" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg" alt="preview">
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+    // Lấy tham chiếu đến container hình ảnh
+    var imageContainer = $("#image-container");
+    
+    // Khởi tạo chức năng zoom cho hình ảnh
+    imageContainer.zoom();
+
+    // Kích hoạt chức năng di chuyển cho hình ảnh
+    imageContainer.draggable();
+
+    // Tùy chỉnh thuộc tính khả năng zoom và di chuyển
+    imageContainer.on("mousewheel", function(event) {
+        event.preventDefault();
+        var delta = event.originalEvent.wheelDelta / 120;
+        var zoomLevel = parseFloat(imageContainer.css("zoom")) || 1;
+        var zoomStep = 0.1;
+
+        zoomLevel += zoomStep * delta;
+        zoomLevel = Math.max(0.5, zoomLevel);
+        zoomLevel = Math.min(3, zoomLevel);
+
+        imageContainer.css("zoom", zoomLevel);
+    });
+
+    // Đảm bảo hình ảnh không di chuyển khi thực hiện drag-and-drop
+    imageContainer.on("dragstart", function(event) {
+        event.preventDefault();
+    });
+});
+</script>

@@ -1,0 +1,91 @@
+<style>
+    .image-gallery {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-container {
+        width: 100%;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+    }
+
+    .image-list {
+        display: inline-flex;
+    }
+
+    .image-list img {
+        width: 300px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .scroll-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        border: none;
+        background: transparent;
+        color: #000;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .prev-button {
+        left: 10px;
+    }
+
+    .next-button {
+        right: 10px;
+    }
+</style>
+<div class="image-gallery">
+  <div class="image-container">
+    <div class="image-list">
+      <img src="path/to/image1.jpg" alt="Image 1">
+      <img src="path/to/image2.jpg" alt="Image 2">
+      <img src="path/to/image3.jpg" alt="Image 3">
+      <img src="path/to/image4.jpg" alt="Image 4">
+      <img src="path/to/image5.jpg" alt="Image 5">
+      <img src="path/to/image6.jpg" alt="Image 6">
+      <img src="path/to/image7.jpg" alt="Image 7">
+      <img src="path/to/image8.jpg" alt="Image 8">
+      <img src="path/to/image9.jpg" alt="Image 9">
+      <img src="path/to/image10.jpg" alt="Image 10">
+      <img src="path/to/image11.jpg" alt="Image 11">
+      <img src="path/to/image12.jpg" alt="Image 12">
+      <img src="path/to/image13.jpg" alt="Image 13">
+      <img src="path/to/image14.jpg" alt="Image 14">
+      <img src="path/to/image15.jpg" alt="Image 15">
+      <img src="path/to/image16.jpg" alt="Image 16">
+      <!-- Thêm các hình ảnh khác vào đây -->
+    </div>
+  </div>
+  <button class="scroll-button prev-button">&#8249;</button>
+  <button class="scroll-button next-button">&#8250;</button>
+</div>
+<script>
+    // Lấy đối tượng container và danh sách hình ảnh
+    var container = document.querySelector('.image-container');
+    var imageList = document.querySelector('.image-list');
+
+    // Xử lý sự kiện click nút prev
+    document.querySelector('.prev-button').addEventListener('click', function() {
+    container.scrollBy({
+        left: -300, // Kích thước của mỗi hình ảnh
+        behavior: 'smooth'
+    });
+    });
+
+    // Xử lý sự kiện click nút next
+    document.querySelector('.next-button').addEventListener('click', function() {
+    container.scrollBy({
+        left: 300, // Kích thước của mỗi hình ảnh
+        behavior: 'smooth'
+    });
+    });
+</script>

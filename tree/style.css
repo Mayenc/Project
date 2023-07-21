@@ -1,0 +1,70 @@
+
+/*CSS*/
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#tree {
+    width: 100%;
+    height: 100%;
+    background-color: #EEEEF1;
+}
+[data-ctrl-ec-id]{
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+
+.boc-edit-form-header, .boc-img-button{
+    background-color: #1E1E1E !important;
+}
+
+
+.sales line{    
+    stroke: #F57C00 !important;
+}
+
+.department.sales rect{    
+    fill: #ffe7ce !important;
+}
+.sales .boc-edit-form-header, .sales .boc-img-button{
+    background-color: #F57C00 !important;
+}
+
+
+.technology line{    
+    stroke: #039BE5 !important;    
+}
+
+.department.technology rect{    
+    fill: #d5f1fe  !important;    
+}
+
+.technology .boc-edit-form-header, .technology .boc-img-button{
+    background-color: #039BE5 !important;
+}
+
+
+
+
+.marketing line{
+    stroke: #FFCA28 !important;
+}
+
+.department.marketing rect{
+    fill: #fff9e8  !important;
+}
+
+.marketing .boc-edit-form-header, .marketing .boc-img-button{
+    background-color: #FFCA28 !important;
+}
+
+.dotted-connector path{
+    stroke-dasharray: 7;
+    stroke: #fff;
+}

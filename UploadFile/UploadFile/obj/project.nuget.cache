@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "96Qf+4FlzGzsjkAUW7k3Y1m+uCT15SVr+orbRsP2n48IsUbvga5Q+xkciJjp96ivFY7IibaicDOf6I69Z6jWfQ==",
+  "success": true,
+  "projectFilePath": "D:\\1.Source\\Test\\UploadFile\\UploadFile\\UploadFile.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tructd\\.nuget\\packages\\imageprocessor\\2.9.1\\imageprocessor.2.9.1.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\microsoft.io.recyclablememorystream\\2.2.0\\microsoft.io.recyclablememorystream.2.2.0.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\sixlabors.imagesharp\\2.1.2\\sixlabors.imagesharp.2.1.2.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\sixlabors.imagesharp.web\\2.0.0\\sixlabors.imagesharp.web.2.0.0.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512",
+    "C:\\Users\\tructd\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ImageProcessor 2.9.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "ImageProcessor",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

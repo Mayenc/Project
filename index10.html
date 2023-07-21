@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg" id="cursorImage" ondragstart="return false;"/>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script>
+let gMouseDownX = 0;
+let gMouseDownY = 0;
+let gMouseDownOffsetX = 0;
+let gMouseDownOffsetY = 0;
+
+function addListeners() {
+    document.getElementById('cursorImage').addEventListener('mousedown', mouseDown, false);
+    window.addEventListener('mouseup', mouseUp, false);
+}
+
+function mouseUp() {
+    window.removeEventListener('mousemove', divMove, true);
+}
+
+function mouseDown(e) {
+    gMouseDownX = e.clientX;
+    gMouseDownY = e.clientY;
+
+    var div = document.getElementById('cursorImage');
+
+    //The following block gets the X offset (the difference between where it starts and where it was clicked)
+    let leftPart = "";
+    if(!div.style.left)
+        leftPart+="0px";    //In case this was not defined as 0px explicitly.
+    else
+        leftPart = div.style.left;
+    let leftPos = leftPart.indexOf("px");
+    let leftNumString = leftPart.slice(0, leftPos); // Get the X value of the object.
+    gMouseDownOffsetX = gMouseDownX - parseInt(leftNumString,10);
+
+    //The following block gets the Y offset (the difference between where it starts and where it was clicked)
+    let topPart = "";
+    if(!div.style.top)
+        topPart+="0px";     //In case this was not defined as 0px explicitly.
+    else
+        topPart = div.style.top;
+    let topPos = topPart.indexOf("px");
+    let topNumString = topPart.slice(0, topPos);    // Get the Y value of the object.
+    gMouseDownOffsetY = gMouseDownY - parseInt(topNumString,10);
+
+    window.addEventListener('mousemove', divMove, true);
+}
+
+function divMove(e){
+    var div = document.getElementById('cursorImage');
+    div.style.position = 'absolute';
+    let topAmount = e.clientY - gMouseDownOffsetY;
+    div.style.top = topAmount + 'px';
+    let leftAmount = e.clientX - gMouseDownOffsetX;
+    div.style.left = leftAmount + 'px';
+}
+
+addListeners();
+</script>
